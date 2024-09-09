@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Rspec.describe Book, type: :model do
+RSpec.describe Book, type: :model do
   subject do
     described_class.new(title: 'Harry Potter')
   end
@@ -10,7 +10,8 @@ Rspec.describe Book, type: :model do
     expect(subject).not_to be_valid
   end
 
-  it 'should have at least 5 books' do
+  it 'should have at least 20 books' do
+    puts "Book count: #{Book.count}"
     expect(Book.count).to be > 20
   end
 
