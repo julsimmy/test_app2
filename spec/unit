@@ -1,0 +1,17 @@
+require 'rails_helper'
+
+Rspec.describe Book, type: :model do
+  subject do
+    described_class.new(title: 'Harry Potter')
+  end
+
+  it 'is not valid without a title' do
+    subject.title = nil
+    expect(subject).not_to be_valid
+  end
+
+  it 'should have at least 5 books' do
+    expect(Book.count).to be > 20
+  end
+
+end
